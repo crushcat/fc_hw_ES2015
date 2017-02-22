@@ -4,7 +4,11 @@
     <title>frontCamp preparation ES2015 HW</title>
 </head>
 <body>
+<button class='getNews'>GET!!!</button>
 <div class="container">
+    <ul class = 'container-n'>
+        <li>news:</li>
+    </ul>
 -
 </div>
 <script>
@@ -23,8 +27,23 @@ fetch(newsUrl, {method: 'GET'})
         })
     });
 
-const container = document.querySelector('.container');
+const container = document.querySelector('.container-n');
 
+function displayNews(){
+    const html = newsChain.map(article =>{
+        const title = article.title.replace();
+        const headline = article.description;
+        return `
+            <li>
+                <span class="title"><b>${title}</b></span></br>
+                <span class="headline">${headline}</span>
+            </li>
+        `;
+    }).join('');
+    container.innerHTML = html;
+}
+const btn = document.querySelector('.getNews');
+btn.addEventListener('click',displayNews);
 </script>
 </body>
 </html>
